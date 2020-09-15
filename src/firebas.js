@@ -1,13 +1,13 @@
 import * as firebase from "firebase/app";
 const firebaseConfig = {
-  apiKey: "AIzaSyAaH0mbY0ni_cZOfO5xEzpv-RUEJ9Dr9bo",
-  authDomain: "rankers-b5c5f.firebaseapp.com",
-  databaseURL: "https://rankers-b5c5f.firebaseio.com",
-  projectId: "rankers-b5c5f",
-  storageBucket: "rankers-b5c5f.appspot.com",
-  messagingSenderId: "262336150767",
-  appId: "1:262336150767:web:88b97da4f699c912c2ef1a",
-  measurementId: "G-E4WCBBE8VM"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGIN_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASURE_ID
 };
 
 export default firebase.initializeApp(firebaseConfig);
