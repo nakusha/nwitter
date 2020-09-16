@@ -7,6 +7,7 @@ const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newAccount, setNewAccount] = useState(true);
+  const [error, setError] = useState("");
 
   const onChange = (event) =>{
     const { target : {name, value}} = event;
@@ -33,21 +34,30 @@ const Auth = () => {
       var errorCode = error.code;
         var errorMessage = error.message;
         if (errorCode == 'auth/weak-password') {
-          alert('The password is too weak.');
+          console.log('The password is too weak.');
         } else {
-          alert(errorMessage);
+          setError(error.message);
         }
         console.log(error);
     }
   }
+
+  const toggleAccount = () => setNewAccount((prev) => !prev);
 
   return (
     <div>
       <form onSubmit={onSubmit}>
         <input name="email" type="email" placeholder="Email" required value={email} onChange={onChange}/>
         <input name="password" type="password" placeholder="password" required value={password} onChange={onChange}/>
-        {newAccount ? <input type="submit" value="Create Account"/> : <input type="submit" value="Sign In"/>}
+        <input
+          type="submit"
+          value={newAccount ? "Create Account" : "Sign In"}
+        />
+        {error}
       </form>
+      <span onClick={toggleAccount}>
+        {newAccount ? "Sign In" : "Create Account"}
+      </span>
       <div>
         <button>Continue with Google</button>
       </div>

@@ -1,4 +1,11 @@
+import { AuthService } from "fbase";
 import React from "react";
-const Home = () => <span>Home</span>;
+const Home = () => {
+  return(
+    <div>
+      <button onClick={() => {AuthService.signOut()}}>Sign Out</button>
+    </div>
+  )
+}
 
 export default Home;
